@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.twitchvodnosub" name="TwitchVODNoSub" version="1.0.7" provider-name="SemiCroustii">
+  <requires>
+    <import addon="xbmc.python" version="3.0.0"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="main.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="fr_FR">Regarder les VODs Twitch, y compris celles réservées aux abonnés</summary>
+    <summary lang="en_GB">Watch Twitch VODs, including subscriber-only ones</summary>
+    <description lang="fr_FR">Parcourt les VODs d'une chaîne Twitch ou ouvre une VOD à partir de son lien, et la lit directement depuis le CDN de Twitch.</description>
+    <description lang="en_GB">Browse a Twitch channel's VODs or open one from its link, and play it straight from Twitch's CDN.</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <source>https://github.com/SemiCroustii/plugin.video.twitchvodnosub</source>
+  </extension>
+</addon>
