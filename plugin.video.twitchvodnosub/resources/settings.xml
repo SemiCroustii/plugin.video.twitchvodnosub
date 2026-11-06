@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-  <category label="Lecture">
-    <setting id="quality" type="enum" label="Qualité" values="Toujours demander|Source (meilleure)|1080p|720p|480p|360p|Audio seulement" default="1"/>
-    <setting id="inputstream" type="bool" label="Utiliser InputStream Adaptive (recommandé pour avancer dans la vidéo)" default="true"/>
+  <category label="30000">
+    <setting id="quality" type="enum" label="30001" lvalues="30002|30003|30004|30005|30006|30007|30008" default="1"/>
+    <setting id="inputstream" type="bool" label="30009" default="true"/>
   </category>
-  <category label="Navigation">
-    <setting id="page_size" type="slider" label="VODs par page" range="10,10,100" option="int" default="30"/>
+  <category label="30010">
+    <setting id="page_size" type="slider" label="30011" range="10,10,100" option="int" default="30"/>
   </category>
 </settings>

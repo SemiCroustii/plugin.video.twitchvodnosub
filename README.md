@@ -1,66 +1,81 @@
-# TwitchVODNoSub — add-on Kodi
+# TwitchVODNoSub — Kodi add-on
 
-Add-on Kodi pour regarder les VODs Twitch, **y compris celles réservées aux abonnés**, directement depuis le CDN de Twitch.
+Kodi add-on to watch Twitch VODs, **including subscriber-only ones**, straight from Twitch's CDN.
 
-## Fonctionnalités
+> 🇫🇷 Version française résumée [en bas de page](#en-français).
 
-- **Ouvrir une VOD** à partir de son lien (`https://www.twitch.tv/videos/…`) ou de son ID
-- **Rechercher une chaîne** et parcourir ses VODs (les 100 dernières), avec miniatures, dates et durées
-- **Chaînes enregistrées** sur l'écran d'accueil de l'add-on
-- **Choix de la qualité** : Source, 1080p, 720p, … ou « Toujours demander » ; menu contextuel « Choisir la qualité » sur chaque VOD
-- Lecture via **InputStream Adaptive** : navigation dans la timeline, décodage matériel (HEVC 1440p compris, testé sur Nvidia Shield Pro)
+## Features
+
+- **Open a VOD** from its link (`https://www.twitch.tv/videos/…`) or its ID
+- **Search for a channel** and browse its VODs (the latest 100), with thumbnails, dates and durations
+- **Saved channels** on the add-on's home screen
+- **Quality selection**: Source, 1080p, 720p, … or "Always ask"; a "Choose quality" context menu entry on every VOD
+- Playback through **InputStream Adaptive**: timeline seeking, hardware decoding (including 1440p HEVC, tested on Nvidia Shield Pro)
+
+The add-on is available in **English** and **French**, following Kodi's interface language (English is used for any other language).
 
 ## Installation
 
-1. Téléchargez le zip de la dernière version depuis la page [Releases](../../releases).
-2. Dans Kodi : **Paramètres → Système → Add-ons**, activez **Sources inconnues**.
-3. **Add-ons → Installer depuis un fichier zip**, puis choisissez le zip.
-4. **Redémarrez Kodi** (le service local de l'add-on démarre avec Kodi).
+1. Download the zip of the latest version from the [Releases](../../releases) page.
+2. In Kodi: **Settings → System → Add-ons**, enable **Unknown sources**.
+3. **Add-ons → Install from zip file**, then pick the zip.
+4. **Restart Kodi** (the add-on's local service starts with Kodi).
 
-Au premier lancement d'une vidéo, l'add-on propose d'installer InputStream Adaptive s'il est absent.
+The first time you play a video, the add-on offers to install InputStream Adaptive if it is missing.
 
-> N'utilisez pas le bouton « Download ZIP » de GitHub : le dossier qu'il contient n'a pas le nom attendu par Kodi.
+> Don't use GitHub's "Download ZIP" button: the folder it contains doesn't have the name Kodi expects.
 
-Compatible Kodi 19 (Matrix) et suivants ; testé sur Kodi 21 (Windows et Android TV).
+Compatible with Kodi 19 (Matrix) and later; tested on Kodi 21 (Windows and Android TV).
 
-## Fonctionnement
+## How it works
 
-1. Les métadonnées des VODs sont récupérées via l'API GQL de Twitch.
-2. L'adresse de la playlist HLS est reconstruite à partir de l'URL des aperçus (`seekPreviewsURL`), comme le fait l'extension navigateur TwitchNoSub. Aucune connexion ni jeton n'est nécessaire.
-3. Twitch ne fournit pas de playlist maîtresse pour ces VODs. Un petit serveur HTTP local (`service.py`, accessible uniquement sur `127.0.0.1`) en génère une pour InputStream Adaptive, avec :
-   - le codec et la résolution réels, lus dans le segment d'initialisation (sans résolution, Kodi sur Android ne peut pas utiliser le décodage matériel) ;
-   - la playlist `audio_only` comme piste audio séparée (InputStream Adaptive ne lit qu'une piste dans les segments MP4 où l'audio est mélangé à la vidéo).
+1. VOD metadata is fetched through Twitch's GQL API.
+2. The HLS playlist URL is rebuilt from the seek previews URL (`seekPreviewsURL`), as the TwitchNoSub browser extension does. No login or token is required.
+3. Twitch doesn't provide a master playlist for these VODs. A small local HTTP server (`service.py`, only reachable on `127.0.0.1`) generates one for InputStream Adaptive, with:
+   - the actual codec and resolution, read from the initialization segment (without a resolution, Kodi on Android can't use hardware decoding);
+   - the `audio_only` playlist as a separate audio track (InputStream Adaptive only plays one track in MP4 segments where audio is muxed with video).
 
-## Limites
+## Limitations
 
-- **100 VODs maximum par chaîne** : Twitch refuse les requêtes paginées sans jeton d'intégrité.
-- Une VOD dont le live est encore en cours est lue comme un direct.
-- L'add-on dépend d'API non officielles de Twitch, qui peuvent changer à tout moment.
+- **100 VODs max per channel**: Twitch rejects paginated requests without an integrity token.
+- A VOD whose stream is still live is played as a live stream.
+- The add-on relies on unofficial Twitch APIs, which may change at any time.
 
-## Développement
+## Development
 
 ```
 plugin.video.twitchvodnosub/
-├── addon.xml              # manifeste Kodi
-├── main.py                # menus et lecture
-├── service.py             # serveur local de playlists maîtresses
+├── addon.xml              # Kodi manifest
+├── main.py                # menus and playback
+├── service.py             # local master playlist server
 └── resources/
-    ├── settings.xml       # réglages
-    └── lib/twitch.py      # API Twitch et playlists (indépendant de Kodi)
+    ├── settings.xml       # settings
+    ├── language/          # translations (resource.language.en_gb, resource.language.fr_fr)
+    └── lib/twitch.py      # Twitch API and playlists (Kodi-independent)
 ```
 
-Construire le zip installable :
+Build the installable zip:
 
 ```
 python build.py
 ```
 
-Publier une version : augmentez `version` dans `addon.xml`, puis poussez un tag correspondant (`git tag v1.0.8 && git push --tags`). Le workflow GitHub Actions crée la release avec le zip.
+Release a version: bump `version` in `addon.xml`, then push a matching tag (`git tag v1.0.8 && git push --tags`). The GitHub Actions workflow creates the release with the zip.
 
-## Avertissement
+## Disclaimer
 
-Projet non officiel, sans lien avec Twitch. À utiliser dans le respect des conditions d'utilisation de Twitch et des droits des créateurs.
+Unofficial project, not affiliated with Twitch. Use it in accordance with Twitch's terms of service and creators' rights.
 
-## Licence
+## License
 
 [MIT](LICENSE)
+
+---
+
+## En français
+
+Add-on Kodi pour regarder les VODs Twitch, **y compris celles réservées aux abonnés**, directement depuis le CDN de Twitch : ouverture d'une VOD par lien ou ID, recherche de chaînes (100 dernières VODs), chaînes enregistrées, choix de la qualité, lecture via InputStream Adaptive avec décodage matériel. L'interface est en français ou en anglais selon la langue de Kodi.
+
+**Installation** : téléchargez le zip depuis [Releases](../../releases), activez **Sources inconnues** dans Kodi, puis **Add-ons → Installer depuis un fichier zip**, et redémarrez Kodi. N'utilisez pas le bouton « Download ZIP » de GitHub.
+
+Projet non officiel, sans lien avec Twitch.

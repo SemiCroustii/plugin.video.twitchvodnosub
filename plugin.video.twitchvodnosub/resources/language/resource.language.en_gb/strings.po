@@ -1,0 +1,135 @@
+# Kodi Media Center language file
+# Addon id: plugin.video.twitchvodnosub
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_GB\n"
+
+msgctxt "#30000"
+msgid "Playback"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Quality"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Always ask"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Source (best)"
+msgstr ""
+
+msgctxt "#30004"
+msgid "1080p"
+msgstr ""
+
+msgctxt "#30005"
+msgid "720p"
+msgstr ""
+
+msgctxt "#30006"
+msgid "480p"
+msgstr ""
+
+msgctxt "#30007"
+msgid "360p"
+msgstr ""
+
+msgctxt "#30008"
+msgid "Audio only"
+msgstr ""
+
+msgctxt "#30009"
+msgid "Use InputStream Adaptive (recommended for seeking)"
+msgstr ""
+
+msgctxt "#30010"
+msgid "Browsing"
+msgstr ""
+
+msgctxt "#30011"
+msgid "VODs per page"
+msgstr ""
+
+msgctxt "#30100"
+msgid "Open a VOD (link or ID)"
+msgstr ""
+
+msgctxt "#30101"
+msgid "Search for a channel"
+msgstr ""
+
+msgctxt "#30102"
+msgid "Remove from saved channels"
+msgstr ""
+
+msgctxt "#30103"
+msgid "Twitch VOD link or ID"
+msgstr ""
+
+msgctxt "#30104"
+msgid "Invalid VOD link"
+msgstr ""
+
+msgctxt "#30105"
+msgid "Twitch channel name"
+msgstr ""
+
+msgctxt "#30106"
+msgid "Invalid channel name"
+msgstr ""
+
+msgctxt "#30107"
+msgid "+ Save %s"
+msgstr ""
+
+msgctxt "#30108"
+msgid "%s saved"
+msgstr ""
+
+msgctxt "#30109"
+msgid "No VODs on this channel"
+msgstr ""
+
+msgctxt "#30110"
+msgid "Next page (%d/%d)"
+msgstr ""
+
+msgctxt "#30111"
+msgid "Choose quality"
+msgstr ""
+
+msgctxt "#30112"
+msgid "Highlight"
+msgstr ""
+
+msgctxt "#30113"
+msgid "Upload"
+msgstr ""
+
+msgctxt "#30114"
+msgid "Source"
+msgstr ""
+
+msgctxt "#30115"
+msgid "InputStream Adaptive is required to seek in the video.[CR]Do you want to install it now?"
+msgstr ""
+
+msgctxt "#30200"
+msgid "VOD not found (deleted or invalid ID)"
+msgstr ""
+
+msgctxt "#30201"
+msgid "Could not resolve the VOD path"
+msgstr ""
+
+msgctxt "#30202"
+msgid "Channel not found: %s"
+msgstr ""
+
+msgctxt "#30203"
+msgid "No playlist found for this VOD"
+msgstr ""

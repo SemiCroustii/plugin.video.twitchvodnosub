@@ -1,0 +1,135 @@
+# Kodi Media Center language file
+# Addon id: plugin.video.twitchvodnosub
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
+
+msgctxt "#30000"
+msgid "Playback"
+msgstr "Lecture"
+
+msgctxt "#30001"
+msgid "Quality"
+msgstr "Qualité"
+
+msgctxt "#30002"
+msgid "Always ask"
+msgstr "Toujours demander"
+
+msgctxt "#30003"
+msgid "Source (best)"
+msgstr "Source (meilleure)"
+
+msgctxt "#30004"
+msgid "1080p"
+msgstr "1080p"
+
+msgctxt "#30005"
+msgid "720p"
+msgstr "720p"
+
+msgctxt "#30006"
+msgid "480p"
+msgstr "480p"
+
+msgctxt "#30007"
+msgid "360p"
+msgstr "360p"
+
+msgctxt "#30008"
+msgid "Audio only"
+msgstr "Audio seulement"
+
+msgctxt "#30009"
+msgid "Use InputStream Adaptive (recommended for seeking)"
+msgstr "Utiliser InputStream Adaptive (recommandé pour avancer dans la vidéo)"
+
+msgctxt "#30010"
+msgid "Browsing"
+msgstr "Navigation"
+
+msgctxt "#30011"
+msgid "VODs per page"
+msgstr "VODs par page"
+
+msgctxt "#30100"
+msgid "Open a VOD (link or ID)"
+msgstr "Ouvrir une VOD (lien ou ID)"
+
+msgctxt "#30101"
+msgid "Search for a channel"
+msgstr "Rechercher une chaîne"
+
+msgctxt "#30102"
+msgid "Remove from saved channels"
+msgstr "Retirer des chaînes enregistrées"
+
+msgctxt "#30103"
+msgid "Twitch VOD link or ID"
+msgstr "Lien ou ID de la VOD Twitch"
+
+msgctxt "#30104"
+msgid "Invalid VOD link"
+msgstr "Lien de VOD invalide"
+
+msgctxt "#30105"
+msgid "Twitch channel name"
+msgstr "Nom de la chaîne Twitch"
+
+msgctxt "#30106"
+msgid "Invalid channel name"
+msgstr "Nom de chaîne invalide"
+
+msgctxt "#30107"
+msgid "+ Save %s"
+msgstr "+ Enregistrer %s"
+
+msgctxt "#30108"
+msgid "%s saved"
+msgstr "%s enregistrée"
+
+msgctxt "#30109"
+msgid "No VODs on this channel"
+msgstr "Aucune VOD sur cette chaîne"
+
+msgctxt "#30110"
+msgid "Next page (%d/%d)"
+msgstr "Page suivante (%d/%d)"
+
+msgctxt "#30111"
+msgid "Choose quality"
+msgstr "Choisir la qualité"
+
+msgctxt "#30112"
+msgid "Highlight"
+msgstr "Temps fort"
+
+msgctxt "#30113"
+msgid "Upload"
+msgstr "Upload"
+
+msgctxt "#30114"
+msgid "Source"
+msgstr "Source"
+
+msgctxt "#30115"
+msgid "InputStream Adaptive is required to seek in the video.[CR]Do you want to install it now?"
+msgstr "InputStream Adaptive est nécessaire pour avancer dans la vidéo.[CR]Voulez-vous l'installer maintenant ?"
+
+msgctxt "#30200"
+msgid "VOD not found (deleted or invalid ID)"
+msgstr "VOD introuvable (supprimée ou ID invalide)"
+
+msgctxt "#30201"
+msgid "Could not resolve the VOD path"
+msgstr "Impossible de résoudre le chemin de la VOD"
+
+msgctxt "#30202"
+msgid "Channel not found: %s"
+msgstr "Chaîne introuvable : %s"
+
+msgctxt "#30203"
+msgid "No playlist found for this VOD"
+msgstr "Aucune playlist trouvée pour cette VOD"

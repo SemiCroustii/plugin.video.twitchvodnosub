@@ -19,7 +19,18 @@ VIDEO_FIELDS = '''
 
 
 class TwitchError(Exception):
-    pass
+    """Erreur identifiée par un code stable, que l'add-on traduit (message anglais par défaut)."""
+    MESSAGES = {
+        'gql': '%s',
+        'vod_not_found': 'VOD not found (deleted or invalid ID)',
+        'vod_unresolved': 'Could not resolve the VOD path',
+        'channel_not_found': 'Channel not found: %s',
+        'no_playlist': 'No playlist found for this VOD',
+    }
+
+    def __init__(self, code, *details):
+        self.code, self.details = code, details
+        super().__init__(self.MESSAGES.get(code, code) % details)
 
 
 def gql(query, variables=None):
@@ -29,7 +40,7 @@ def gql(query, variables=None):
     with urlopen(req, timeout=TIMEOUT) as res:
         data = json.loads(res.read().decode('utf-8'))
     if data.get('errors'):
-        raise TwitchError(data['errors'][0].get('message', 'Erreur GQL'))
+        raise TwitchError('gql', data['errors'][0].get('message', 'GQL error'))
     return data.get('data') or {}
 
 
@@ -49,9 +60,9 @@ def parse_login(text):
 def get_video(vod_id):
     video = gql('query($id: ID!) { video(id: $id) { %s } }' % VIDEO_FIELDS, {'id': vod_id}).get('video')
     if not video:
-        raise TwitchError('VOD introuvable (supprimée ou ID invalide)')
+        raise TwitchError('vod_not_found')
     if not video.get('seekPreviewsURL'):
-        raise TwitchError('Impossible de résoudre le chemin de la VOD')
+        raise TwitchError('vod_unresolved')
     return video
 
 
@@ -69,7 +80,7 @@ def get_channel_videos(login):
     }''' % VIDEO_FIELDS
     user = gql(query, {'login': login}).get('user')
     if not user:
-        raise TwitchError('Chaîne introuvable : %s' % login)
+        raise TwitchError('channel_not_found', login)
     videos = user.pop('videos') or {'edges': []}
     return user, [e['node'] for e in videos['edges']]
 
@@ -177,4 +188,4 @@ def master_playlist(media_url, quality, audio_url=None):
 
 
 def quality_label(q):
-    return {'chunked': 'Source', 'audio_only': 'Audio seulement'}.get(q, q)
+    return {'chunked': 'Source', 'audio_only': 'Audio only'}.get(q, q)
